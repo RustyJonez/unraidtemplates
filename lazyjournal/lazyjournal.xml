@@ -12,14 +12,14 @@
   <Overview/>
   <Category>Tools: System Logging</Category>
   <WebUI>http://[IP]:[PORT]</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/RustyJonez/unraidtemplates/refs/heads/main/lazyjournal/lazyjournal.xml</TemplateURL>
   <Icon/>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1758397497</DateInstalled>
   <Requires/>
-  <Config Name="WebUI Port" Target="5555" Default="5555" Mode="tcp" Description="The port for the Web UI. Maps container port 5555 to host port 5555." Type="Port" Display="always" Required="true" Mask="null">5555</Config>
+  <Config Name="WebUI Port" Target="5555" Default="5555" Mode="tcp" Description="The port for the Web UI. Maps container port 5555 to host port 5000." Type="Port" Display="always" Required="true" Mask="null">5555</Config>
   <Config Name="Systemd D-Bus" Target="/run/dbus/system_bus_socket" Default="/run/dbus/system_bus_socket" Mode="ro" Description="Read-only access to the Systemd D-Bus socket for log access." Type="Path" Display="always" Required="false" Mask="{8}">/run/dbus/system_bus_socket</Config>
   <Config Name="Systemd Mount" Target="/run/systemd/system" Default="/run/systemd/system" Mode="ro" Description="Read-only access to the Systemd directory." Type="Path" Display="always" Required="false" Mask="{8}">/run/systemd/system</Config>
   <Config Name="Journald Socket" Target="/run/systemd/journal/socket" Default="/run/systemd/journal/socket" Mode="ro" Description="Read-only access to the Journald socket." Type="Path" Display="always" Required="false" Mask="{8}">/run/systemd/journal/socket</Config>
