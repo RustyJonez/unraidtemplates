@@ -2,25 +2,36 @@
 <Container version="2">
   <Name>lazyjournal</Name>
   <Repository>lifailon/lazyjournal</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
   <Privileged>true</Privileged>
-  <Category>Tools: System Logging</Category>
-  <Description>A TUI for reading logs from various sources like journald, Docker, and the filesystem. This container is configured with the necessary volumes and a privileged flag to access host system logs.</>
+  <Support/>
   <Project>https://github.com/Lifailon/lazyjournal</Project>
-  <WebUI>http://[IP]:[PORT:5000]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/rustyjonez/unraidtemplates/master/lazyjournal/lazyjournal.xml</TemplateURL>
-  <Config Name="WebUI Port" Target="5555" Default="5000" Mode="tcp" Description="The port for the Web UI. Maps container port 5555 to host port 5000." Type="Port" Display="always" Required="true"/>
-  <Config Name="Systemd D-Bus" Target="/run/dbus/system_bus_socket" Default="/run/dbus/system_bus_socket" Mode="ro" Description="Read-only access to the Systemd D-Bus socket for log access." Type="Path" Displ>
-  <Config Name="Systemd Mount" Target="/run/systemd/system" Default="/run/systemd/system" Mode="ro" Description="Read-only access to the Systemd directory." Type="Path" Display="always" Required="false"/>
-  <Config Name="Journald Socket" Target="/run/systemd/journal/socket" Default="/run/systemd/journal/socket" Mode="ro" Description="Read-only access to the Journald socket." Type="Path" Display="always" Requir>
-  <Config Name="Machine ID" Target="/etc/machine-id" Default="/etc/machine-id" Mode="ro" Description="Read-only access to the machine-id for Journald access." Type="Path" Display="always" Required="false"/>
-  <Config Name="Var Log" Target="/var/log" Default="/var/log" Mode="ro" Description="Read-only access to the host's /var/log directory." Type="Path" Display="always" Required="false"/>
-  <Config Name="Opt Mount" Target="/opt" Default="/opt" Mode="ro" Description="Read-only access to the host's /opt directory." Type="Path" Display="always" Required="false"/>
-  <Config Name="Home Mount" Target="/home" Default="/home" Mode="ro" Description="Read-only access to the host's /home directory." Type="Path" Display="always" Required="false"/>
-  <Config Name="Docker Socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Read-only access to the Docker socket for container logs." Type="Path" Display="always" Requi>
-  <Config Name="Docker Containers" Target="/var/lib/docker/containers" Default="/var/lib/docker/containers" Mode="ro" Description="Read-only access to Docker's container directory for log reading." Type="Path>
-  <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro" Description="Read-only access to the host's localtime file to sync the timezone." Type="Path" Display="always" Required=">
-  <Config Name="TTYD" Target="TTYD" Default="true" Description="Enable TTYD for Web UI. Leave as 'true' to enable." Type="Variable" Display="always" Required="false"/>
-  <Config Name="PORT" Target="PORT" Default="5555" Description="Internal container port used for the Web UI. Must match the port configured for the WebUI Port mapping." Type="Variable" Display="always" Require>
-  <Config Name="TTYD Interactive" Target="tty" Default="true" Description="Enable TTY support for TUI mode. Leave as 'true'." Type="Variable" Display="always" Required="false"/>
-  <Config Name="Stdin Open" Target="stdin_open" Default="true" Description="Enable stdin for interactive TUI mode. Leave as 'true'." Type="Variable" Display="always" Required="false"/>
+  <Overview/>
+  <Category>Tools: System Logging</Category>
+  <WebUI>http://[IP]:[PORT]</WebUI>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1758397497</DateInstalled>
+  <Requires/>
+  <Config Name="WebUI Port" Target="5555" Default="5555" Mode="tcp" Description="The port for the Web UI. Maps container port 5555 to host port 5555." Type="Port" Display="always" Required="true" Mask="null">5555</Config>
+  <Config Name="Systemd D-Bus" Target="/run/dbus/system_bus_socket" Default="/run/dbus/system_bus_socket" Mode="ro" Description="Read-only access to the Systemd D-Bus socket for log access." Type="Path" Display="always" Required="false" Mask="{8}">/run/dbus/system_bus_socket</Config>
+  <Config Name="Systemd Mount" Target="/run/systemd/system" Default="/run/systemd/system" Mode="ro" Description="Read-only access to the Systemd directory." Type="Path" Display="always" Required="false" Mask="{8}">/run/systemd/system</Config>
+  <Config Name="Journald Socket" Target="/run/systemd/journal/socket" Default="/run/systemd/journal/socket" Mode="ro" Description="Read-only access to the Journald socket." Type="Path" Display="always" Required="false" Mask="{8}">/run/systemd/journal/socket</Config>
+  <Config Name="Var Log" Target="/var/log" Default="/var/log" Mode="ro" Description="Read-only access to the host's /var/log directory." Type="Path" Display="always" Required="false" Mask="{8}">/var/log</Config>
+  <Config Name="Opt Mount" Target="/opt" Default="/opt" Mode="ro" Description="Read-only access to the host's /opt directory." Type="Path" Display="always" Required="false" Mask="{8}">/opt</Config>
+  <Config Name="Home Mount" Target="/home" Default="/home" Mode="ro" Description="Read-only access to the host's /home directory." Type="Path" Display="always" Required="false" Mask="{8}">/home</Config>
+  <Config Name="Docker Socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Read-only access to the Docker socket for container logs." Type="Path" Display="always" Required="false" Mask="{8}">/var/run/docker.sock</Config>
+  <Config Name="Docker Containers" Target="/var/lib/docker/containers" Default="/var/lib/docker/containers" Mode="ro" Description="Read-only access to Docker's container directory for log reading." Type="Path" Display="always" Required="false" Mask="{8}">/var/lib/docker/containers</Config>
+  <Config Name="Local Time" Target="/etc/localtime" Default="/etc/localtime" Mode="ro" Description="Read-only access to the host's localtime file to sync the timezone." Type="Path" Display="always" Required="false" Mask="{8}">/etc/localtime</Config>
+  <Config Name="TTYD" Target="TTYD" Default="true" Mode="{3}" Description="Enable TTYD for Web UI. Leave as 'true' to enable." Type="Variable" Display="always" Required="false" Mask="{8}">true</Config>
+  <Config Name="PORT" Target="PORT" Default="5555" Mode="{3}" Description="Internal container port used for the Web UI. Must match the port configured for the WebUI Port mapping." Type="Variable" Display="always" Required="false" Mask="{8}">5555</Config>
+  <Config Name="TTYD Interactive" Target="tty" Default="true" Mode="{3}" Description="Enable TTY support for TUI mode. Leave as 'true'." Type="Variable" Display="always" Required="false" Mask="{8}">true</Config>
+  <Config Name="Stdin Open" Target="stdin_open" Default="true" Mode="{3}" Description="Enable stdin for interactive TUI mode. Leave as 'true'." Type="Variable" Display="always" Required="false" Mask="{8}">true</Config>
+  <TailscaleStateDir/>
 </Container>
